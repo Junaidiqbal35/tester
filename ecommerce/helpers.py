@@ -7,7 +7,7 @@ class Helpers():
 	def get_path(file):
 		module_name = EcommerceConfig.name
 		
-		return '/' + module_name + '/' + file
+		return '/en/' + module_name + '/' + file
 		
 	def get_url(file):
 		module_name = EcommerceConfig.name

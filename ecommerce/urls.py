@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 
 from . import views
 
+
 app_name = 'ecommerce' # This will be like this: {% url 'ecommerce:detail' item.id %} on our templates. 
 urlpatterns = [
 	url(r'^$', views.index, name='index'),

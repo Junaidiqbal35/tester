@@ -27,23 +27,23 @@
 </head>
 <body class="override">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-		<a class="navbar-brand" href="/ecommerce/">Infinity market</a>
+		<a class="navbar-brand" href="/en/ecommerce/">Infinity market</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/ecommerce/products">المنتجات</a></li>
-				<li class="nav-item"><a class="nav-link" href="/ecommerce/contact">تواصل معنا</a></li>
+				<li class="nav-item"><a class="nav-link" href="/en/ecommerce/products">المنتجات</a></li>
+				<li class="nav-item"><a class="nav-link" href="/en/ecommerce/contact">تواصل معنا</a></li>
 			</ul>
 			<ul class="navbar-nav">
 				{% if user.is_authenticated %}
-					<li class="nav-item"><a class="nav-link" href="/ecommerce/cart">السلة</a></li>
+					<li class="nav-item"><a class="nav-link" href="/en/ecommerce/cart">السلة</a></li>
 				{% else %}
-					<li class="nav-item"><a class="nav-link" href="/ecommerce/cart">السلة</a></li>
-					<li class="nav-item"><a class="nav-link" href="/ecommerce/user/register">Register</a></li>
-					<li class="nav-item"><a class="nav-link" href="/ecommerce/user/login">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="/en/ecommerce/cart">السلة</a></li>
+					<li class="nav-item"><a class="nav-link" href="/en/ecommerce/user/register">Register</a></li>
+					<li class="nav-item"><a class="nav-link" href="/en/ecommerce/user/login">Login</a></li>
 				{% endif %}
 			</ul>
 		</div>

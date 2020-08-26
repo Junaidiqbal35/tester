@@ -50,7 +50,7 @@ def single_product(request, product_id):
         for data in product_images:
             images.append({"small": Helpers.get_path(str(data.image)), 'big': Helpers.get_path(str(data.image))})
 
-    return render(request, Helpers.get_url('product/single.html'),
+    return render(request, 'ecommerce/product/single.html',
                   {'product': product, 'images': str(images).replace("'", '"'), 'in_cart': in_cart, 'author': author,
                    'currency': EcommerceConfig.currency})
 
@@ -394,7 +394,7 @@ def user_product_update(request, product_id):
                     'price'])  # Strip all non numberic characters except decimal
                 product.status = form.cleaned_data['status']
                 product.quantity = form.cleaned_data['quantity']
-                product.save()
+                # product.save()
 
                 # Check if there are posted images.
                 if request.FILES.getlist('images'):
@@ -418,6 +418,8 @@ def user_product_update(request, product_id):
                             image=uploaded_file_url
                         )
                         image.save()
+                    product.featured_image = err_succ['images'][0]
+                    product.save()
 
                 # Return a success message.
                 err_succ['status'] = 1
@@ -434,7 +436,7 @@ def user_product_update(request, product_id):
             'status': product.status,
             'quantity': product.quantity,
         }
-        return render(request, Helpers.get_url('product/update.html'), {'form': UpdateProductForm(initial=product_data),
+        return render(request,Helpers.get_url('product/update.html'), {'form': UpdateProductForm(initial=product_data),
                                                                         'product': product})  # Include product object when rendering the view.
 
 
@@ -628,7 +630,7 @@ def cart(request):
             cart_items.modified = True
 
         # return HttpResponse(cart_items.items())
-        return HttpResponseRedirect(request.POST.get('redirect', '/ecommerce/products'))
+        return HttpResponseRedirect(request.POST.get('redirect', '/en/ecommerce/products'))
 
     # No post data availabe, let's just show the page.
     else:
@@ -641,7 +643,7 @@ def cart(request):
             cart_total = (item.price * cart_item.get("quantity")) + cart_total
 
         # return HttpResponse(cart_items.items())
-        return render(request, Helpers.get_url('cart.html'),
+        return render(request, 'ecommerce/cart.html',
                       {'cart_session_items': cart_items["cart"], 'cart_db_items': products,
                        'cart_total': float("%0.2f" % (cart_total)), 'currency': EcommerceConfig.currency})
 

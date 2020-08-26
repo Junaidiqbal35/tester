@@ -298,7 +298,7 @@ var app = {
 					if(response == 0){
 						Lobibox.notify('error', {msg: response.message, size: 'mini', sound: false});
 					} else {
-						window.location.href = module_path + 'user/product/update/' + response.message + '?status=created';
+						window.location.href ='/en' +module_path + 'user/product/update/' + response.message + '?status=created';
 					}
 				}
             });
@@ -353,7 +353,7 @@ var app = {
 					var parent_element = $(this).parent();
 					
 					$.ajax({
-						url: module_path + 'user/product/update/unset-image/',
+						url: '/en'+module_path + 'user/product/update/unset-image/',
 						type: 'POST',
 						type: 'POST',
 						data: {
@@ -393,7 +393,7 @@ var app = {
 					
 				} else {
 					$.ajax({
-						url: module_path + 'user/product/update/set-featured-image/',
+						url: '/en'+module_path + 'user/product/update/set-featured-image/',
 						type: 'POST',
 						data: {
 							'action': 'set-featured-image',
